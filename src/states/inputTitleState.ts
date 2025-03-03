@@ -8,5 +8,5 @@ import { atom } from "recoil";
 // defaultは初期値
 export const inputTitleState = atom({
   key: 'inputTitleState',
-  default: 'first input task',
+  default: '',
 });
