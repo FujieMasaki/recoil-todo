@@ -1,31 +1,24 @@
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { inputTitleState } from "../states/inputTitleState";
 
 const InputTask: React.FC = () => {
-    const [inputTask, setInputTask] = useRecoilState(inputTitleState);
+    const inputTitle = useRecoilValue(inputTitleState);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputTask(e.target.value);
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log(inputTask);
-        // ここでタスク追加のロジックを実装
+    const handleClick = () => {
+        console.log(inputTitle);
     };
 
     return (
-        <form className='task-form' onSubmit={handleSubmit}>
+        <div>
             <p className='task-title'>Task</p>
             <input
                 type="text"
-                value={inputTask}
-                onChange={handleChange}
+                onChange={handleClick}
                 placeholder="Enter a new task"
                 className='task-input'
             />
             <button type="submit" className='task-button'>Add Task</button>
-        </form>
+        </div>
     );
 };
 
